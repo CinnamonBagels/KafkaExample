@@ -13,12 +13,7 @@ public class KafkaConsumer {
 
   private Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
 
-  @KafkaListener(topics = "mytopic")
-  public void onKafkaMessage(ConsumerRecord<String, String> record) {
-    log.info(record.toString());
-  }
-
-  @KafkaListener(topicPattern = "topic.*")
+  @KafkaListener(topicPattern = ".*")
   public void onTopicPatternKafkaMessage(ConsumerRecord<String, String> record) {
     log.info(record.toString());
   }
